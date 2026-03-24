@@ -1,0 +1,477 @@
+/* ============================================
+   Portfolio — Pixel Style Gimmick
+   Tema: Stardew Valley + Balatro
+   ============================================ */
+
+:root {
+  --warna-utama: #01061b;
+  --warna-sekunder: #0d1629;
+  --warna-aksen: #d4a84b;
+  --warna-aksen-alt: #7eb876;
+  --warna-teks-utama: #f0e6d3;
+  --warna-teks-muted: #9a8f7a;
+  --warna-card: #1a2332;
+  --warna-border: #3d4a5c;
+  --warna-border-glow: #d4a84b;
+  --num: 6;
+  --wd: 200;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+html.no-scroll {
+  overflow: hidden;
+}
+
+body {
+  font-family: "Nunito", "Quicksand", sans-serif;
+  background-color: var(--warna-utama);
+  color: var(--warna-teks-utama);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+body.no-scroll {
+  overflow: hidden;
+}
+
+h1, h2, h3 {
+  font-family: "Pixelify Sans", "Press Start 2P", sans-serif;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ============================================
+   Navbar
+   ============================================ */
+
+.navbar {
+  background-color: var(--warna-utama);
+  border-bottom: 2px solid var(--warna-border);
+  padding: 0.4rem 0;
+  position: relative;
+}
+
+.navbar-brand,
+.brand-arcan {
+  color: var(--warna-aksen) !important;
+  font-family: "Pixelify Sans", sans-serif;
+  font-weight: 700;
+  font-size: 1.75rem;
+}
+
+.navbar-brand:hover {
+  color: var(--warna-teks-utama) !important;
+}
+
+.nav-link {
+  padding: 0.5rem 0.75rem !important;
+}
+
+.nav-icon {
+  width: 42px;
+  height: 42px;
+  object-fit: contain;
+  transition: all 0.25s ease-in-out;
+}
+
+.nav-link:hover .nav-icon {
+  filter: brightness(1.3);
+}
+
+.nav-link-github .nav-icon {
+  transition: filter 0.25s ease-in-out;
+}
+
+.nav-link-github:hover .nav-icon,
+.nav-link-github:focus .nav-icon {
+  filter: brightness(1.2) drop-shadow(0 0 8px var(--warna-aksen)) drop-shadow(0 0 16px rgba(212, 168, 75, 0.6));
+}
+
+.nav-link-unlock-glow .nav-icon {
+  animation: navUnlockGlow 2.5s ease-out;
+}
+
+@keyframes navUnlockGlow {
+  0%, 100% { filter: brightness(1); }
+  20%, 80% { filter: brightness(1.3) drop-shadow(0 0 12px var(--warna-aksen-alt)) drop-shadow(0 0 20px rgba(126, 184, 118, 0.7)); }
+}
+
+.navbar-toggler {
+  border-color: var(--warna-border) !important;
+  cursor: pointer;
+  z-index: 1050;
+}
+
+.navbar-toggler:focus {
+  box-shadow: 0 0 0 0.25rem rgba(212, 168, 75, 0.3);
+}
+
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='%23f0e6d3' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
+  width: 1.25em;
+  height: 1.25em;
+}
+
+.navbar-collapse {
+  z-index: 1040;
+}
+
+@media (min-width: 992px) {
+  .navbar-collapse.collapse {
+    display: flex !important;
+  }
+}
+
+@media (max-width: 991.98px) {
+  .navbar .container {
+    position: relative;
+  }
+
+  .navbar-collapse.collapse {
+    display: none !important;
+    overflow: hidden;
+    max-height: 0;
+  }
+
+  .navbar-collapse.collapse.show {
+    display: flex !important;
+    flex-basis: 100%;
+    max-height: 400px;
+    position: absolute;
+    top: 100%;
+    left: 1rem;
+    right: 1rem;
+    margin-top: 0.5rem;
+    background-color: var(--warna-utama);
+    border: 2px solid var(--warna-border);
+    padding: 1rem;
+  }
+}
+
+/* ============================================
+   Section Home (Hero)
+   ============================================ */
+
+.section-home {
+  background: linear-gradient(135deg, var(--warna-utama) 0%, var(--warna-sekunder) 100%);
+  min-height: 100vh;
+}
+
+.hero-title {
+  font-size: 2.5rem;
+  color: var(--warna-teks-utama);
+}
+
+.hero-tagline {
+  font-size: 0.95rem;
+  color: var(--warna-aksen-alt);
+  font-style: italic;
+}
+
+.hero-deskripsi {
+  color: var(--warna-teks-muted);
+  font-size: 1rem;
+}
+
+.btn-curious {
+  background-color: var(--warna-aksen);
+  color: var(--warna-utama);
+  border: 2px solid var(--warna-aksen);
+  padding: 0.75rem 1.5rem;
+  font-family: "Pixelify Sans", sans-serif;
+  font-weight: 600;
+  font-size: 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.25s ease-in-out;
+  box-shadow: 4px 4px 0 var(--warna-border);
+}
+
+.btn-curious:hover {
+  background-color: var(--warna-aksen-alt);
+  border-color: var(--warna-aksen-alt);
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0 var(--warna-border);
+}
+
+.secret-feedback {
+  color: var(--warna-aksen-alt) !important;
+  font-family: "Pixelify Sans", sans-serif;
+  animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.hero-img-wrapper {
+  position: relative;
+}
+
+.hero-img {
+  max-width: 320px;
+  margin: 0 auto;
+  border-radius: 8px;
+  border: 2px solid var(--warna-border);
+  box-shadow: 8px 8px 0 var(--warna-border);
+  transition: transform 0.1s linear;
+}
+
+.hero-plaster {
+  position: relative;
+  cursor: pointer;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.hero-plaster:active .hero-plaster-block {
+  transform: scale(0.99);
+}
+
+.hero-plaster.plaster-shake .hero-plaster-block {
+  animation: plasterShake 0.4s ease;
+}
+
+.hero-plaster.plaster-revealed .hero-plaster-content {
+  animation: plasterReveal 0.5s ease;
+}
+
+@keyframes plasterShake {
+  0%, 100% { transform: translateX(0); }
+  20% { transform: translateX(-4px); }
+  40% { transform: translateX(4px); }
+  60% { transform: translateX(-2px); }
+  80% { transform: translateX(2px); }
+}
+
+@keyframes plasterReveal {
+  from { opacity: 0; transform: scale(0.95) translateY(-4px); }
+  to { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+.hero-plaster-block {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1rem 1.25rem;
+  background: linear-gradient(180deg, var(--warna-card) 0%, var(--warna-sekunder) 100%);
+  border: 3px solid var(--warna-border);
+  border-radius: 8px;
+  user-select: none;
+  min-height: 3.5rem;
+  transition: all 0.25s ease;
+  box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.3);
+}
+
+.hero-plaster-block:hover {
+  border-color: var(--warna-aksen);
+  box-shadow: 4px 4px 0 var(--warna-aksen);
+}
+
+.plaster-label {
+  font-family: "Pixelify Sans", "Press Start 2P", sans-serif;
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: var(--warna-teks-muted);
+  letter-spacing: 0.02em;
+}
+
+.hero-plaster-block:hover .plaster-label {
+  color: var(--warna-aksen);
+}
+
+.plaster-hint {
+  font-family: "Pixelify Sans", sans-serif;
+  font-size: 0.8rem;
+  color: var(--warna-border);
+  opacity: 0.9;
+}
+
+.hero-plaster-block:hover .plaster-hint {
+  color: var(--warna-aksen-alt);
+}
+
+.plaster-bar {
+  height: 6px;
+  background-color: var(--warna-utama);
+  border-radius: 4px;
+  overflow: hidden;
+  border: 1px solid var(--warna-border);
+}
+
+.plaster-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--warna-aksen), var(--warna-aksen-alt));
+  border-radius: 3px;
+  transition: width 0.35s ease-out;
+  min-width: 0;
+}
+
+.hero-plaster-content {
+  margin: 0;
+}
+
+.skill-persen {
+  color: var(--warna-teks-muted);
+  font-size: 0.875rem;
+}
+
+/* ============================================
+   Section About Me
+   ============================================ */
+
+.section-about {
+  background-color: var(--warna-sekunder);
+}
+
+.section-title {
+  color: var(--warna-teks-utama);
+  font-size: 1.75rem;
+}
+
+.about-deskripsi {
+  color: var(--warna-teks-muted);
+  font-size: 1rem;
+}
+
+.progress-pixel {
+  height: 1.25rem;
+  background-color: var(--warna-border);
+  border-radius: 6px;
+  overflow: hidden;
+  border: 2px solid var(--warna-border);
+}
+
+.progress-pixel .progress-bar {
+  background-color: var(--warna-aksen);
+  transition: width 0.5s ease-in-out;
+}
+
+.skill-item:nth-child(even) .progress-bar {
+  background-color: var(--warna-aksen-alt);
+}
+
+.list-pengalaman {
+  list-style: none;
+  padding-left: 0;
+}
+
+.list-pengalaman li {
+  position: relative;
+  padding-left: 1.5rem;
+  margin-bottom: 0.75rem;
+  color: var(--warna-teks-muted);
+}
+
+.list-pengalaman li::before {
+  content: "▸";
+  position: absolute;
+  left: 0;
+  color: var(--warna-aksen);
+  font-weight: bold;
+}
+
+/* ============================================
+   Section Certificates — 3D Coverflow
+   ============================================ */
+
+.section-certificates {
+  background-color: var(--warna-utama);
+}
+
+#certificates .carousel {
+  display: flex;
+  align-items: flex-start;
+  min-height: 460px;
+  overflow: hidden;
+  mask-image: linear-gradient(to right, transparent, #000 8% 92%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 8% 92%, transparent);
+}
+
+#certificates .gallery {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 420px;
+  position: relative;
+  perspective: 40em;
+  margin: 0;
+  padding: 0;
+}
+
+#certificates .gallery .card {
+  width: calc(var(--wd) * 1px);
+  height: auto;
+  max-height: 400px;
+  position: absolute;
+  transform-style: preserve-3d;
+  left: 100%;
+  animation: slide 12s linear infinite, scaleEffect 12s ease-in-out infinite;
+  animation-delay: calc(12s * ((var(--timer) - 1) / var(--num) - 1));
+  transition: transform 0.25s ease-in-out;
+}
+
+#certificates .gallery .card img {
+  width: 100%;
+  border-radius: 8px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
+  background-color: var(--warna-card);
+  border: 1px solid var(--warna-border);
+  -webkit-box-reflect: below 0px linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.3));
+}
+
+@keyframes slide {
+  from { left: 100%; }
+  to { left: calc(-1 * var(--wd) * 1px); }
+}
+
+@keyframes scaleEffect {
+  0%, 40%, 60%, 100% {
+    transform: scale(1) rotateY(-90deg);
+    z-index: 0;
+    filter: grayscale(1);
+  }
+  50% {
+    transform: scale(2) rotateY(0deg);
+    z-index: 10;
+    filter: grayscale(0);
+  }
+}
+
+/* ============================================
+   Responsive
+   ============================================ */
+
+@media (max-width: 768px) {
+  .hero-title { font-size: 1.75rem; }
+  .hero-img { max-width: 240px; }
+  #certificates .gallery .card {
+    width: calc(var(--wd) * 0.7 * 1px);
+  }
+  #certificates .gallery { height: 360px; }
+}
+
+@media (max-width: 576px) {
+  .hero-title { font-size: 1.5rem; }
+  .section-title { font-size: 1.5rem; }
+  .navbar-brand { font-size: 1.5rem !important; }
+  #certificates .gallery .card {
+    width: calc(var(--wd) * 0.55 * 1px);
+  }
+}
